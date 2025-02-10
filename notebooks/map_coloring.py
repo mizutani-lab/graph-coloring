@@ -33,6 +33,7 @@ for index, row in pd.read_csv('../data/county_adjacency2024.txt', delimiter='|')
 # Initialize pseudorandom number generator.
 rand = Random(12345)
 
+
 def show_map(colors, show_png=False):
     color_map = {str(i + 1): px.colors.qualitative.Plotly[i] for i in range(10)}
     color_map['-'] = 'rgba(0,0,0,0)'
@@ -47,7 +48,7 @@ def show_map(colors, show_png=False):
         color_discrete_map=color_map,
         mapbox_style='carto-positron',
         zoom=5.5,
-        center = {"lat": 39.5, "lon": -111.55},
+        center={"lat": 39.5, "lon": -111.55},
         width=500,
         height=500,
         opacity=0.8
@@ -56,7 +57,7 @@ def show_map(colors, show_png=False):
         margin=dict(r=0, t=0, l=0, b=0),
         showlegend=True
     )
-    
+
     if show_png:
         display_png(Image(fig.to_image('png')))
     else:
